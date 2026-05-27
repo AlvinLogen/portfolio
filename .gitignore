@@ -1,0 +1,19 @@
+#OS files
+DS_Store
+Thumbs.db
+Desktop.ini
+
+#Editor Swap files
+*.swp
+*.swo
+
+#Environment files
+.env
+.env.local
+
+#Dependencies
+node_modules/
+
+#Other
+project/
+

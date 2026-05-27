@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Full-stack developer portfolio - projects, skills, and content."
+    />
+
+    <!-- Open Graph: controls appearance when shared on LinkedIn, Slack, Twitter -->
+    <meta property="og:title" content="Alvin - Developer Portfolio" />
+    <meta
+      property="og:description"
+      content="Full-stack developer portfolio - projects, skills, and content."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://AlvinLogen.github.io" />
+
+    <!-- Content Security Policy -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' https://avatars.githubusercontent.com data:; connect-src 'self' https://api.github.com"
+    />
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Alvin - Developer Portfolio</title>
+  </head>
+  <body>
+    <!-- Navigation-->
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+
+        <button
+          id="hamburger-btn"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Theme Toggle-->
+        <button id="theme-toggle-btn" aria-label="Toggle dark mode">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </nav>
+      <div id="mobile-menu" aria-hidden="true">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section-->
+      <section id="hero">
+        <h1>Hi, I'm <span id="hero-name">Alvin</span></h1>
+        <p id="hero-tagline">Building things for the web.</p>
+        <a href="projects.html">See My Work</a>
+        <a href="contact.html">Get In Touch</a>
+      </section>
+
+      <!-- Github Stats Section -->
+      <section id="github-stats">
+        <h2>By the numbers</h2>
+        <div id="stats-container">
+          <p>Loading Github stats...</p>
+        </div>
+      </section>
+
+      <!-- Featured Projects Preview -->
+      <section id="featured-projects">
+        <h2>Recent Work</h2>
+        <div id="projects-preview-container">
+          <p>Loading projects...</p>
+        </div>
+        <a href="projects.html"> View All Projects</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Alvin Logenstein</p>
+      <a href="https://github.com/AlvinLogen">Github</a>
+    </footer>
+
+    <script src="js//theme.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/animations.js"></script>
+  </body>
+</html>
