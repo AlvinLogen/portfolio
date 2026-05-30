@@ -47,13 +47,13 @@ async function loadGitHubStats() {
 function buildRepoCard(repo) {
   const language = repo.language || "Unknown";
   const stars = repo.stargazers_count;
-  const updatedDate = new Date().toLocaleDateString("en-GB", {
+  const updatedDate = new Date(repo.pushed_at).toLocaleDateString("en-GB", {
     year: "numeric",
     month: "short",
   });
 
   return `
-    <article class="rounded-xl border p-6 flex flex-col gap-3 transition-shadow hover: shadow-log" style="border-color: var(--color-border); background-color: var(--color-bg-secondary); data-language='${language}'">
+    <article class="rounded-xl border p-6 flex flex-col gap-3 transition-shadow hover: shadow-log" style="border-color: var(--color-border); background-color: var(--color-bg-secondary);" data-language="${language}">
         <div class="flex justify-between item0start gap-2">
             <h3 class="font-semibold text-base leading-tight">${repo.name}</h3>
             <span class="text-xs px-2 py-0.5 rounded-full shrink-0" style="background-color: var(--color-accent); color: #fff;">${language}</span>
@@ -89,9 +89,9 @@ async function loadProjects() {
 
     filterContainer.innerHTML = languages
       .map(
-        (lang) => `
-    <button class="language-filter-btn px-4 py-1.5 rounded-full text-sm border transition-colors" style="border-color:var(--color-border); data-lang='${lang}'">
-    ${lang}
+        (language) => `
+    <button class="language-filter-btn px-4 py-1.5 rounded-full text-sm border transition-colors" style="border-color:var(--color-border);" data-lang="${language}">
+    ${language}
     </button>
     `,
       )
@@ -101,13 +101,13 @@ async function loadProjects() {
       const btn = event.target.closest(".language-filter-btn");
       if (!btn) return;
 
-      const selectLang = btn.dataset.language;
+      const selectLang = btn.dataset.lang;
       const allCards = projectsGrid.querySelectorAll("article[data-language]");
 
       allCards.forEach((card) => {
         const matches =
           selectLang === "All" || card.dataset.language === selectLang;
-        card.computedStyleMap.display = matches ? "" : "none";
+        card.style.display = matches ? "" : "none";
       });
     });
   } catch (error) {
