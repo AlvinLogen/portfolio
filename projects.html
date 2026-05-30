@@ -1,9 +1,172 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects - Portfolio</title>
+    <meta
+      name="description"
+      content="Full-stack developer portfolio - projects, skills, and content."
+    />
+
+    <!-- Open Graph: controls appearance when shared on LinkedIn, Slack, Twitter -->
+    <meta property="og:title" content="Alvin - Developer Portfolio" />
+    <meta
+      property="og:description"
+      content="Full-stack developer portfolio - projects, skills, and content."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://AlvinLogen.github.io" />
+
+    <!-- Content Security Policy -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://fonts.googleapis.com; font-src 'self' https://rsms.me https://fonts.gstatic.com;img-src 'self' https://avatars.githubusercontent.com data:; connect-src 'self' https://api.github.com"
+    />
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Alvin - Developer Projects</title>
+    <style>
+      /*Light theme - default*/
+      [data-theme="light"] {
+        --color-bg: #ffffff;
+        --color-bg-secondary: #f9fafb;
+        --color-text: #111827;
+        --color-text-muted: #6b7280;
+        --color-border: #e5e7eb;
+        --color-accent: #2563eb;
+        --color-accent-hover: #1d4ed8;
+      }
+
+      /*Dark theme*/
+      [data-theme="dark"] {
+        --color-bg: #111827;
+        --color-bg-secondary: #1f2937;
+        --color-text: #f9fafb;
+        --color-text-muted: #9ca3af;
+        --color-border: #374151;
+        --color-accent: #60a5fa;
+        --color-accent-hover: #93c5fd;
+      }
+
+      /*Apply variables to base elements*/
+      body {
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
+      }
+    </style>
   </head>
-  <body></body>
+
+  <body class="min-h-screen font-sans antialiased">
+    <!-- Navigation-->
+    <header
+      class="sticky top-0 z-50 border-b"
+      style="
+        background-color: var(--color-bg);
+        border-color: var(--color-border);
+      "
+    >
+      <nav
+        class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between"
+      >
+        <div class="hidden md:flex items-center gap-6">
+          <a
+            href="index.html"
+            class="text-sm font-medium hover:opacity-70 transition-opacity"
+            >Home</a
+          >
+          <a
+            href="about.html"
+            class="text-sm font-medium hover:opacity-70 transition-opacity"
+            >About</a
+          >
+          <a
+            href="projects.html"
+            class="text-sm font-medium hover:opacity-70 transition-opacity"
+            >Projects</a
+          >
+          <a
+            href="skills.html"
+            class="text-sm font-medium hover:opacity-70 transition-opacity"
+            >Skills</a
+          >
+          <a
+            href="contact.html"
+            class="text-sm font-medium hover:opacity-70 transition-opacity"
+            >Contact</a
+          >
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button
+            id="hamburger-btn"
+            class="md:hidden flex flex-col gap-1.5 p-2 rounded"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+          >
+            <span
+              class="block w-5 h-0.5"
+              style="background-color: var(--color-text)"
+            ></span>
+            <span
+              class="block w-5 h-0.5"
+              style="background-color: var(--color-text)"
+            ></span>
+            <span
+              class="block w-5 h-0.5"
+              style="background-color: var(--color-text)"
+            ></span>
+          </button>
+
+          <!-- Theme Toggle-->
+          <button
+            id="theme-toggle-btn"
+            class="p-2 rounded text-leg"
+            aria-label="Toggle dark mode"
+          >
+            <span id="theme-icon">🌙</span>
+          </button>
+        </div>
+      </nav>
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden flex-col px-4 pb-4 gap-3"
+        aria-hidden="true"
+      >
+        <a href="index.html" class="text-sm font-medium py-1">Home</a>
+        <a href="about.html" class="text-sm font-medium py-1">About</a>
+        <a href="projects.html" class="text-sm font-medium py-1">Projects</a>
+        <a href="skills.html" class="text-sm font-medium py-1">Skills</a>
+        <a href="contact.html" class="text-sm font-medium py-1">Contact</a>
+      </div>
+    </header>
+    <main><h1>Projects</h1></main>
+    <footer
+      class="border-t py-8"
+      style="
+        border-color: var(--color-border);
+        background-color: var(--color-bg-secondary);
+      "
+    >
+      <div
+        class="max-w-5xl mx-auto px-4 flex justify-between items-center text-sm"
+        style="color: var(--color-text-muted)"
+      >
+        <p>&copy; 2026 Alvin Logenstein</p>
+        <a
+          href="https://github.com/AlvinLogen"
+          class="hover:opacity-70 transition-opacity"
+          style="color: var(--color-accent)"
+          >Github</a
+        >
+      </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/animations.js"></script>
+    <!-- github.js added Night 3-->
+  </body>
 </html>
