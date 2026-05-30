@@ -24,7 +24,7 @@
     />
     <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Alvin - Developer Projects</title>
+    <title>Projects - Alvin</title>
     <style>
       /*Light theme - default*/
       [data-theme="light"] {
@@ -120,10 +120,10 @@
             ></span>
           </button>
 
-          <!-- Theme Toggle-->
+          <!-- Theme Toggle -->
           <button
             id="theme-toggle-btn"
-            class="p-2 rounded text-leg"
+            class="p-2 rounded text-lg"
             aria-label="Toggle dark mode"
           >
             <span id="theme-icon">🌙</span>
@@ -142,7 +142,35 @@
         <a href="contact.html" class="text-sm font-medium py-1">Contact</a>
       </div>
     </header>
-    <main><h1>Projects</h1></main>
+    <main>
+      <section
+        id="github-stats"
+        class="max-w-5xl mx-auto px-4 py-16 border-t"
+        style="border-color: var(--color-border)"
+      >
+        <h2 class="text-2xl font-bold mb-8 text-center">By the numbers</h2>
+        <div
+          id="stats-container"
+          class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
+        >
+          <p style="color: var(--color-text-muted)">Loading Github stats...</p>
+        </div>
+      </section>
+
+      <section
+        id="all-projects"
+        class="max-w-5xl mx-auto px-4 py-16 border-t"
+        style="border-color: var(--color-border)"
+      >
+        <h1 class="text-2xl font-bold mb-8 text-center">All Projects</h1>
+        <div id="filter-container" class="flex flex-wrap gap-2 mb-8"></div>
+        <div
+          id="projects-grid"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        ></div>
+      </section>
+    </main>
+
     <footer
       class="border-t py-8"
       style="
@@ -167,6 +195,6 @@
     <script src="js/theme.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/animations.js"></script>
-    <!-- github.js added Night 3-->
+    <script src="js/github.js"></script>
   </body>
 </html>
