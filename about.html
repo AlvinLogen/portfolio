@@ -56,6 +56,17 @@
           background-color 0.2s ease,
           color 0.2s ease;
       }
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     </style>
   </head>
 

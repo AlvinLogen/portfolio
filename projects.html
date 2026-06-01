@@ -56,6 +56,17 @@
           background-color 0.2s ease,
           color 0.2s ease;
       }
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+      }
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     </style>
   </head>
 
@@ -145,7 +156,7 @@
     <main>
       <section
         id="github-stats"
-        class="max-w-5xl mx-auto px-4 py-16 border-t"
+        class="max-w-5xl mx-auto px-4 py-16 border-t animate-on-scroll"
         style="border-color: var(--color-border)"
       >
         <h2 class="text-2xl font-bold mb-8 text-center">By the numbers</h2>
@@ -159,7 +170,7 @@
 
       <section
         id="all-projects"
-        class="max-w-5xl mx-auto px-4 py-16 border-t"
+        class="max-w-5xl mx-auto px-4 py-16 border-t animate-on-scroll"
         style="border-color: var(--color-border)"
       >
         <h1 class="text-2xl font-bold mb-8 text-center">All Projects</h1>
