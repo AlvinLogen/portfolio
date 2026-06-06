@@ -7,6 +7,8 @@ const {
   validateEmail,
 } = require("../js/utils");
 
+const { posts } = require("../js/blog");
+
 // formatDate
 
 describe("formatDate", () => {
@@ -100,5 +102,23 @@ describe("validateEmail", () => {
 
   it("returns false for null input", () => {
     expect(validateEmail(null)).toBe(false);
+  });
+});
+
+describe("posts", () => {
+  it("posts have at least one post", () => {
+    expect(posts.length >= 1).toBe(true);
+  });
+
+  it("every post has a non-empty title", () => {
+    posts.forEach((post) => {
+      expect(post.title.length).toBeGreaterThanOrEqual(1);
+    });
+  });
+
+  it("every post has a non-empty date", () => {
+    posts.forEach((post) => {
+      expect(post.date.length).toBeGreaterThanOrEqual(1);
+    });
   });
 });
