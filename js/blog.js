@@ -42,5 +42,4 @@ function renderPosts() {
 }
 
 if (typeof module !== "undefined") module.exports = { posts };
-
-renderPosts();
+if (typeof document !== "undefined") renderPosts();

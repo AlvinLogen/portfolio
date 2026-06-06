@@ -5,6 +5,7 @@ const {
   calculateReadTime,
   transformRepo,
   validateEmail,
+  calculateStats,
 } = require("../js/utils");
 
 const { posts } = require("../js/blog");
@@ -120,5 +121,39 @@ describe("posts", () => {
     posts.forEach((post) => {
       expect(post.date.length).toBeGreaterThanOrEqual(1);
     });
+  });
+});
+
+describe("Calculate Stats", () => {
+  const sampleRepos = [
+    { name: "a", language: "JavaScript", stars: 5 },
+    { name: "b", language: "JavaScript", stars: 2 },
+    { name: "c", language: "Python", stars: 8 },
+  ];
+
+  it("counts total repos correctly", () => {
+    expect(calculateStats(sampleRepos).totalRepos).toBe(3);
+  });
+
+  it("sums stars correctly", () => {
+    expect(calculateStats(sampleRepos).totalStars).toBe(15);
+  });
+
+  it("identifies the top language", () => {
+    // JavaScript appears twice, Python once — JavaScript should win
+    expect(calculateStats(sampleRepos).topLanguage).toBe("JavaScript");
+  });
+
+  it("handles an empty array", () => {
+    expect(calculateStats([])).toEqual({
+      totalRepos: 0,
+      totalStars: 0,
+      topLanguage: "Unknown",
+    });
+  });
+
+  it("handles repos with missing stars", () => {
+    const repos = [{ name: "x", language: "Go", stars: undefined }];
+    expect(calculateStats(repos).totalStars).toBe(0);
   });
 });

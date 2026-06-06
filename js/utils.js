@@ -56,6 +56,34 @@ function validateEmail(email) {
   if (!email || typeof email !== "string") return false;
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
+/**
+ * calculates aggregate stats from an array of transformed repo objects
+ * @param {Array<{name: string, language: string, stars: number}} repos
+ * @returns {{totalRepos: number, totalStars: number, topLanguage: string}}
+ * **/
+function calculateStats(repos) {
+  if (!Array.isArray(repos) || repos.length === 0) {
+    return { totalRepos: 0, totalStars: 0, topLanguage: "Unknown" };
+  }
+
+  const totalStars = repos.reduce((sum, repo) => sum + (repo.stars || 0), 0);
+
+  const languageCount = {};
+  repos.forEach((repo) => {
+    const lang = repo.language || "Unknown";
+    languageCount[lang] = (languageCount[lang] || 0) + 1;
+  });
+
+  const topLanguage = Object.entries(languageCount).sort(
+    (a, b) => b[1] - a[1],
+  )[0][0];
+
+  return {
+    totalRepos: repos.length,
+    totalStars,
+    topLanguage,
+  };
+}
 
 // CommonJS exports
 
@@ -64,4 +92,5 @@ module.exports = {
   calculateReadTime,
   transformRepo,
   validateEmail,
+  calculateStats,
 };
