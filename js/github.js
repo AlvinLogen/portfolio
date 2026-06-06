@@ -52,7 +52,6 @@ function buildRepoCard(repo) {
     month: "short",
   });
 
-  
   return `
     <article class="rounded-xl border p-6 flex flex-col gap-3 transition-shadow hover: shadow-log" style="border-color: var(--color-border); background-color: var(--color-bg-secondary);" data-language="${language}">
         <div class="flex justify-between item0start gap-2">
